@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DocumentRoot</title>
+<link rel="stylesheet" type="text/css" href="/thinkphp5/public/static/index/css/index.css" />
+</head>
+
+<body>
+   <div>{$xum}--{__PUBLIC__}</div>
+   {volist name="data" id="dat"}
+      <div>{$key}--{$dat[DB_NBATEAM_NAME]}</div>
+   {/volist}
+</body>
+</html>

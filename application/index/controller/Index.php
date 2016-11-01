@@ -2,8 +2,11 @@
 namespace app\index\controller;
 
 use \think\Request;
+//use \think\View;
+use \think\Controller;
+use \app\index\model\Nbateam;
 
-class Index
+class Index extends Controller
 {
     public function index()
     {
@@ -17,5 +20,18 @@ class Index
     	echo "当前控制器名称是：" . $request->controller()."<br />";
     	echo "当前操作名称是：" . $request->action()."<br />";
     	return 'xum-hello'."<br />";
+    }
+    
+    public function curd()
+    {
+    	$nbaTeam = new Nbateam();
+    	$data = $nbaTeam->_get_team_info();
+    	//var_dump($data);
+    	$this->assign('xum','hello');
+    	$this->assign('data',$data);
+    	$target = "index/curd";
+    	return $this->fetch($target);
+    	
+    	//return $this->display($target,['xum'=>'xxx']);
     }
 }
