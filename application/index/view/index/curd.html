@@ -8,8 +8,21 @@
 
 <body>
    <div>{$xum}-----{__PUBLIC__}</div>
+   <table style="margin: 0 auto; text-align: center;">
+      <tr>
+         <th>数目</th>
+         <th>名字</th>
+         <th>胜利</th>
+         <th>失败</th>
+      </tr>
    {volist name="data" id="dat"}
-      <div>{$key}--{$dat[DB_NBATEAM_NAME]}</div>
+      <tr>
+         <td>{$key}</td>
+         <td>{$dat[DB_NBATEAM_NAME]}</td>
+         <td>{$dat[DB_NBATEAM_WIN]}</td>
+         <td>{$dat[DB_NBATEAM_LOSE]}</td>
+      </tr>
    {/volist}
+   </table>
 </body>
 </html>

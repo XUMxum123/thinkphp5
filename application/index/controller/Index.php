@@ -19,6 +19,11 @@ class Index extends Controller
     	echo "当前模块名称是：" . $request->module()."<br />";
     	echo "当前控制器名称是：" . $request->controller()."<br />";
     	echo "当前操作名称是：" . $request->action()."<br />";
+    	echo '请求方法：' . $request->method() . '<br/>';
+    	echo '资源类型：' . $request->type() . '<br/>';
+    	echo '访问地址：' . $request->ip() . '<br/>';
+    	echo '是否AJax请求：' . var_export($request->isAjax(), true) . '<br/>';
+    	echo 'user-agent类型：' . $request->header('user-agent') . '<br/>';
     	return 'xum-hello'."<br />";
     }
     
