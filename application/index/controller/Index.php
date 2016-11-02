@@ -35,6 +35,17 @@ class Index extends Controller
     	$this->assign('xum','hello');
     	$this->assign('data',$data);
     	$target = "index/curd";
+    	//echo $nbaTeam->getLastSql();
+    	
+/*     	$news = model(DB_NEWS_TAB);
+    	// 模型对象赋值
+    	$news->data([
+    			DB_NEWS_ID => '9c15510439db8e218879aabc43fde91e',
+    			DB_NEWS_TITLE => 'xum-title',
+    			DB_NEWS_CONTENT => 'xyzxyzxyzxyzxyzxyzxyz'
+    	]);
+    	$news->save(); */
+    	
     	return $this->fetch($target);
     	
     	//return $this->display($target,['xum'=>'xxx']);

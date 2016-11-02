@@ -23,3 +23,10 @@ define("DB_NBATEAM_RANK", "Rank");
 define("DB_NBATEAM_ALLIANCE", "Alliance");
 define("DB_NBATEAM_PLAYOFFS", "Playoffs");
 define("DB_NBATEAM_PARTITION", "Partition");
+
+/*    news 表
+ */
+define("DB_NEWS_TAB", "news");
+define("DB_NEWS_ID", "id");
+define("DB_NEWS_TITLE", "title");
+define("DB_NEWS_CONTENT", "content");
