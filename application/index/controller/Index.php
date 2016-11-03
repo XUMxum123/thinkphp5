@@ -5,6 +5,7 @@ use \think\Request;
 //use \think\View;
 use \think\Controller;
 use \app\index\model\Nbateam;
+use \app\index\model\News;
 
 class Index extends Controller
 {
@@ -24,6 +25,7 @@ class Index extends Controller
     	echo '访问地址：' . $request->ip() . '<br/>';
     	echo '是否AJax请求：' . var_export($request->isAjax(), true) . '<br/>';
     	echo 'user-agent类型：' . $request->header('user-agent') . '<br/>';
+    	echo 'today is：' . getWeekDayByCurrentDate() ."<br />";
     	return 'xum-hello'."<br />";
     }
     
@@ -37,6 +39,18 @@ class Index extends Controller
     	$target = "index/curd";
     	//echo $nbaTeam->getLastSql();
     	
+    	$news = new News();
+    	$Id = '9c15510439db8e218879aabc43fde91e';
+    	$condition = [
+    			       DB_NEWS_ID => '9c15510439db8e218879aabc43fde91e'
+    	             ];
+    	$data = [    			 			   
+    			   DB_NEWS_TITLE => 'title',
+    			   DB_NEWS_CONTENT => 'xum'  			
+    	        ];   	
+    	//echo $news->saveInfo($data);
+    	//echo $news->updateInfoByCondition($condition,$data);
+    	echo $news->deleteInfoByCondition($condition);
 /*     	$news = model(DB_NEWS_TAB);
     	// 模型对象赋值
     	$news->data([
@@ -46,7 +60,7 @@ class Index extends Controller
     	]);
     	$news->save(); */
     	
-    	return $this->fetch($target);
+    	//return $this->fetch($target);
     	
     	//return $this->display($target,['xum'=>'xxx']);
     }

@@ -11,7 +11,9 @@
 
 // 应用公共文件
 
-/*    nbateam 表
+/*  -----  define table  -----*/
+
+/*    nbateam table
  */
 define("DB_NBATEAM_TAB", "nbateam");
 define("DB_NBATEAM_ID", "Id");
@@ -24,9 +26,48 @@ define("DB_NBATEAM_ALLIANCE", "Alliance");
 define("DB_NBATEAM_PLAYOFFS", "Playoffs");
 define("DB_NBATEAM_PARTITION", "Partition");
 
-/*    news 表
+/*    news table
  */
 define("DB_NEWS_TAB", "news");
 define("DB_NEWS_ID", "id");
 define("DB_NEWS_TITLE", "title");
 define("DB_NEWS_CONTENT", "content");
+
+
+
+
+/* .....  common function  .....*/
+
+/** Generates an UUID
+ * @param string  an optional prefix
+ * @return string  the formatted uuid
+ */
+function uuid($prefix = ''){
+	$chars = md5(uniqid(mt_rand(), true));
+	$uuid  = substr($chars,0,8);
+	$uuid .= substr($chars,8,4);
+	$uuid .= substr($chars,12,4);
+	$uuid .= substr($chars,16,4);
+	$uuid .= substr($chars,20,12);
+	return $prefix.$uuid;
+}
+
+/** Get the WeekDay by the CurrentDate
+ * @return string  weekDay
+ * */
+function getWeekDayByCurrentDate(){
+	$currentTime = date("Y-m-d"); // get current date
+	$dayNumber = date('w',strtotime($currentTime)); //generate day number(0,1,2,3,4,5,6)
+	switch($dayNumber)
+	{
+		case "0": $weekDay = "Sunday"; break;
+		case "1": $weekDay = "Monday"; break;
+		case "2": $weekDay = "Tuesday"; break;
+		case "3": $weekDay = "Wednesday"; break;
+		case "4": $weekDay = "Thursday"; break;
+		case "5": $weekDay = "Friday"; break;
+		case "6": $weekDay = "Saturday"; break;
+		 default: $weekDay = "none";
+	}
+	return $weekDay;
+}
