@@ -29,6 +29,15 @@ class Index extends Controller
     	return 'xum-hello'."<br />";
     }
     
+    public function paginate()
+    {
+    	$nbaTeam = new Nbateam();
+    	$list = $nbaTeam->_get_team_by_paginate();
+    	$this->assign('page', 10);
+    	$this->assign('list', $list);
+    	return $this->fetch();
+    }
+    
     public function curd()
     {
     	$nbaTeam = new Nbateam();
@@ -39,7 +48,7 @@ class Index extends Controller
     	$target = "index/curd";
     	//echo $nbaTeam->getLastSql();
     	
-    	$news = new News();
+/*     	$news = new News();
     	$Id = '9c15510439db8e218879aabc43fde91e';
     	$condition = [
     			       DB_NEWS_ID => '9c15510439db8e218879aabc43fde91e'
@@ -47,10 +56,10 @@ class Index extends Controller
     	$data = [    			 			   
     			   DB_NEWS_TITLE => 'title',
     			   DB_NEWS_CONTENT => 'xum'  			
-    	        ];   	
+    	        ];   */ 	
     	//echo $news->saveInfo($data);
     	//echo $news->updateInfoByCondition($condition,$data);
-    	echo $news->deleteInfoByCondition($condition);
+    	//echo $news->deleteInfoByCondition($condition);
 /*     	$news = model(DB_NEWS_TAB);
     	// 模型对象赋值
     	$news->data([
@@ -60,7 +69,7 @@ class Index extends Controller
     	]);
     	$news->save(); */
     	
-    	//return $this->fetch($target);
+    	return $this->fetch($target);
     	
     	//return $this->display($target,['xum'=>'xxx']);
     }

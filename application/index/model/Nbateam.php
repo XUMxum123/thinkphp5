@@ -18,5 +18,10 @@ class Nbateam extends Model
 		return $data;
 	}
 	
+	public function _get_team_by_paginate()
+	{
+		return $this->paginate();
+	}
+	
 }
 ?>

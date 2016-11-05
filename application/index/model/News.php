@@ -5,7 +5,7 @@ use think\Model;
 class News extends Model
 {
 	protected $table = DB_NEWS_TAB;
-			
+		
 	public function saveInfo($data){
 		$affectRow = $this->save($data);
 		return $affectRow;
